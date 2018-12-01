@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_medicines"
+        android:icon="@drawable/pills"
+        android:title="Medicines" />
+
+    <item
+        android:id="@+id/navigation_treatments"
+        android:icon="@drawable/medicines"
+        android:title="Treatments" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/plus"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/search"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/alarm"
+        android:title="Notifications" />
+
+</menu>
