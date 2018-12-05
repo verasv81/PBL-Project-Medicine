@@ -1,13 +1,18 @@
 package com.example.user.my_medicine_separatisti.mExpandables;
 
+import java.util.ArrayList;
+
 public class MedicineHeader {
     private String headerTitle;
     private String headerDate;
+    private ArrayList<MedicineChild> childList;
+
 
     public MedicineHeader(String headerTitle, String headerDate) {
         this.headerTitle = headerTitle;
         this.headerDate = headerDate;
     }
+
 
     public String getHeaderTitle() {
         return headerTitle;
@@ -28,4 +33,14 @@ public class MedicineHeader {
     public String getName() {
         return headerTitle;
     }
+
+
+    public ArrayList<MedicineChild> getChildList() {
+        return childList;
+    }
+
+    public void setChildList(ArrayList<MedicineChild> childList) {
+        this.childList = childList;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.user.my_medicine_separatisti.mAdapters;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,10 @@ import com.example.user.my_medicine_separatisti.R;
 import com.example.user.my_medicine_separatisti.mExpandables.MedicineChild;
 import com.example.user.my_medicine_separatisti.mExpandables.MedicineHeader;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class MedicineAdapter extends BaseExpandableListAdapter {
 
@@ -22,7 +25,6 @@ public class MedicineAdapter extends BaseExpandableListAdapter {
     private List<MedicineHeader> new_listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<MedicineChild>> _listDataChild;
-
 
     public MedicineAdapter(Context context, List<MedicineHeader> listDataHeader, HashMap<String, List<MedicineChild>> listChildData) {
         this._context = context;
@@ -112,5 +114,4 @@ public class MedicineAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
     }
-
 }

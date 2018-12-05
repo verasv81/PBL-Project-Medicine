@@ -18,11 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mFragments.MedicineFragment" />
-        <activity android:name=".mFragments.TreatmentFragment" />
-        <activity android:name=".mFragments.AddMedicineFragment" />
-        <activity android:name=".mFragments.SearchFragment" />
-        <activity android:name=".mFragments.AddTreatmentFragment"></activity>
     </application>
 
 </manifest>

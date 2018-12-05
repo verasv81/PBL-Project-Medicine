@@ -25,4 +25,5 @@ public class MedicineChild {
     public void setComment(String comment) {
         Comment = comment;
     }
+
 }

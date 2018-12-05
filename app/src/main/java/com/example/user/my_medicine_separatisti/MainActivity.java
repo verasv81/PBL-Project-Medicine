@@ -16,12 +16,9 @@ import android.widget.TextView;
 import com.example.user.my_medicine_separatisti.mFragments.AddMedicineFragment;
 import com.example.user.my_medicine_separatisti.mFragments.AddTreatmentFragment;
 import com.example.user.my_medicine_separatisti.mFragments.MedicineFragment;
-import com.example.user.my_medicine_separatisti.mFragments.SearchFragment;
 import com.example.user.my_medicine_separatisti.mFragments.TreatmentFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.navigation_add:
                     selectedFragment = new AddMedicineFragment().newInstance();
-                    break;
-                case R.id.navigation_search:
-                    selectedFragment = new SearchFragment().newInstance();
                     break;
                 case R.id.navigation_notifications:
                     selectedFragment = new AddTreatmentFragment().newInstance();
@@ -69,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 5000);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

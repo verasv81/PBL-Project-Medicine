@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.util.Log;
 
 import com.example.user.my_medicine_separatisti.mData.DataBaseHelper;
@@ -28,6 +29,30 @@ public class DataBaseAdapter {
     }
 
     //--------------------------------------Medicines---------------------------
+
+    public Cursor getWordMatches(String query, String[] columns) {
+        String selection = Medicine.COLUMN_MEDICINE_NAME + " MATCH ?";
+        String[] selectionArgs = new String[] {query+"*"};
+
+        return query(selection, selectionArgs, columns);
+    }
+
+    private Cursor query(String selection, String[] selectionArgs, String[] columns) {
+        SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+        builder.setTables(Medicine.TABLE_NAME);
+
+        Cursor cursor = builder.query(helper.getReadableDatabase(),
+                columns, selection, selectionArgs, null, null, null);
+
+        if (cursor == null) {
+            return null;
+        } else if (!cursor.moveToFirst()) {
+            cursor.close();
+            return null;
+        }
+        return cursor;
+    }
+
     //insert a Medicine
     public boolean insertMedicine(Medicine med){
         db = helper.getWritableDatabase();
