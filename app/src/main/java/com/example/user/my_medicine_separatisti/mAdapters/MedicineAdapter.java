@@ -10,6 +10,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.example.user.my_medicine_separatisti.R;
+import com.example.user.my_medicine_separatisti.mData.Model.Medicine;
 import com.example.user.my_medicine_separatisti.mExpandables.MedicineChild;
 import com.example.user.my_medicine_separatisti.mExpandables.MedicineHeader;
 
@@ -47,6 +48,7 @@ public class MedicineAdapter extends BaseExpandableListAdapter {
 
         MedicineChild childText = (MedicineChild) getChild(groupPosition, childPosition);
         MedicineChild childComment = (MedicineChild) getChild(groupPosition, childPosition);
+        MedicineChild childDate=(MedicineChild) getChild(groupPosition,childPosition);
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -56,7 +58,9 @@ public class MedicineAdapter extends BaseExpandableListAdapter {
         TextView txtListChild = (TextView) convertView.findViewById(R.id.quantityId);
 
         TextView commentChild = (TextView) convertView.findViewById(R.id.commentId);
+        TextView dataHeader = (TextView) convertView.findViewById(R.id.data);
 
+        dataHeader.setText(childDate.getExpirationDate());
         txtListChild.setText(childText.getQuantity());
         commentChild.setText(childComment.getComment());
         return convertView;
@@ -94,10 +98,7 @@ public class MedicineAdapter extends BaseExpandableListAdapter {
         }
 
         TextView lblListHeader = (TextView) convertView.findViewById(R.id.lblListHeader);
-        TextView dataHeader = (TextView) convertView.findViewById(R.id.data);
 
-        dataHeader.setTypeface(null, Typeface.BOLD);
-        dataHeader.setText(headerDate.getHeaderDate());
 
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle.getHeaderTitle());
