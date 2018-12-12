@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 public class MedicineHeader {
     private String headerTitle;
-    private String headerDate;
     private ArrayList<MedicineChild> childList;
 
 
-    public MedicineHeader(String headerTitle, String headerDate) {
+    public MedicineHeader(String headerTitle) {
         this.headerTitle = headerTitle;
-        this.headerDate = headerDate;
     }
 
 
@@ -20,14 +18,6 @@ public class MedicineHeader {
 
     public void setHeaderTitle(String headerTitle) {
         this.headerTitle = headerTitle;
-    }
-
-    public String getHeaderDate() {
-        return headerDate;
-    }
-
-    public void setHeaderDate(String headerDate) {
-        this.headerDate = headerDate;
     }
 
     public String getName() {

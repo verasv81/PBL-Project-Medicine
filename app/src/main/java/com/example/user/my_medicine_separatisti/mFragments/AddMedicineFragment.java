@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AddMedicineFragment extends Fragment {
+
     List<MedicineHeader> listDataHeader = new ArrayList<MedicineHeader>();
     HashMap<String, List<MedicineChild>> listDataChild = new HashMap<String, List<MedicineChild>>();
     EditText mName;
@@ -35,7 +36,7 @@ public class AddMedicineFragment extends Fragment {
     EditText mQuantity;
     EditText mComments;
     DataBaseAdapter db;
-    View mView;
+
     public static AddMedicineFragment newInstance() {
         AddMedicineFragment fragment = new AddMedicineFragment();
         return fragment;
@@ -52,10 +53,10 @@ public class AddMedicineFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_add_medicine, container, false);
         db = new DataBaseAdapter(getActivity().getApplicationContext());
 
-        mName = (EditText) view.findViewById(R.id.edit_medicineName);
-        mLifetime = (EditText) view.findViewById(R.id.edit_medicineExpirationDate);
-        mQuantity = (EditText) view.findViewById(R.id.edit_medicineQuantity);
-        mComments = (EditText) view.findViewById(R.id.edit_medicineComments);
+        mName = (EditText) view.findViewById(R.id.add_medicineName);
+        mLifetime = (EditText) view.findViewById(R.id.add_medicineExpirationDate);
+        mQuantity = (EditText) view.findViewById(R.id.add_medicineQuantity);
+        mComments = (EditText) view.findViewById(R.id.add_medicineComments);
         Button mSave = (Button) view.findViewById(R.id.buttonSave);
         final Button mCancel = (Button) view.findViewById(R.id.buttonCancel);
 
@@ -87,9 +88,9 @@ public class AddMedicineFragment extends Fragment {
                             Toast.LENGTH_SHORT).show();
                 }
 
-                listDataHeader.add(new MedicineHeader(mName.getText().toString(), mLifetime.getText().toString()));
+                listDataHeader.add(new MedicineHeader(mName.getText().toString()));
                 List<MedicineChild> pastilaFinal = new ArrayList<MedicineChild>();
-                pastilaFinal.add(new MedicineChild(mQuantity.getText().toString(), mComments.getText().toString()));
+                pastilaFinal.add(new MedicineChild(mQuantity.getText().toString(), mLifetime.getText().toString(), mComments.getText().toString()));
                 listDataChild.put(listDataHeader.get(listDataHeader.size() - 1).toString(), pastilaFinal);
 
                 Medicine s = new Medicine();
